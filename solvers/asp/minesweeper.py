@@ -21,11 +21,21 @@ This implements a global mine count constraint in the solver.
 """
 
 from jinja2 import Template
+from typing import List
 
 from solvers.asp.common import Puzzle
 from solvers.common.loaders import load_grid
 from solvers.common.output import Colors, print_chars_with_color
 
+char_colors = {
+    '*': Colors.YELLOW,
+    '1': Colors.BLUE,
+    '2': Colors.GREEN,
+    '3': Colors.RED,
+    '4': Colors.MAGENTA,
+    '5': Colors.WHITE,
+    '6': Colors.CYAN,
+}
 
 template = """
 % Puzzle Definition
@@ -121,18 +131,31 @@ class MineSweeper(Puzzle):
                                mines=self.mines,
                                excluded=self.excluded).strip()
 
+    def base_grid(self) -> List[List[str]]:
+        """Constructs a list of lists of characters reflected the puzzle definition."""
+        # Construct an empty grid as a list of lists
+        grid = [['.' for _ in range(self.cols)] for _ in range(self.rows)]
+
+        # Fill in the hint numbers
+        for row, col, num in self.numbers:
+            grid[row][col] = str(num)
+
+        # Fill in excluded cells
+        for row, col in self.excluded:
+            grid[row][col] = '#'
+
+        # Fill in mines
+        for row, col in self.mines:
+            grid[row][col] = '*'
+            
+        return grid
+
     def solution_handler(self, model):
         """
         Function that is called whenever a solution is found.
         """
-        # Construct an empty grid as a list of lists
-        grid = [['.' for _ in range(self.cols)] for _ in range(self.rows)]
-        
-        # Fill in the hint numbers and excluded cells
-        for row, col, num in self.numbers:
-            grid[row - 1][col - 1] = str(num)
-        for row, col in self.excluded:
-            grid[row - 1][col - 1] = '#'
+        # Get the base grid
+        grid = self.base_grid()
 
         # Go and grab all the mines from the solution
         for entry in model:
@@ -141,16 +164,30 @@ class MineSweeper(Puzzle):
                 grid[row.number][col.number] = '*'
                 
         # Print the grid
-        colors = {
-            '*': Colors.YELLOW,
-            '1': Colors.BLUE,
-            '2': Colors.GREEN,
-            '3': Colors.RED,
-            '4': Colors.MAGENTA,
-            '5': Colors.WHITE,
-            '6': Colors.CYAN,
-        }
-        print_chars_with_color(grid, colors, self.args.tabbed)
+        print_chars_with_color(grid, char_colors, self.args.tabbed)
+
+    def overlap_handler(self, model):
+        """
+        Function that is called whenever multiple solutions are found.
+        This differs from the normal solution handler, in that it prints all numbers rather than just hints.
+        """
+        # Get the base grid
+        grid = self.base_grid()
+
+        # Go and grab all the mines from the solution
+        for entry in model:
+            if entry.name == 'mine':
+                col, row = entry.arguments
+                grid[row.number][col.number] = '*'
+
+        # Go and grab all the numbers from the solution
+        for entry in model:
+            if entry.name == 'number':
+                col, row, num = entry.arguments
+                grid[row.number][col.number] = str(num.number)
+
+        # Print the grid
+        print_chars_with_color(grid, char_colors, self.args.tabbed)
 
 
 if __name__ == '__main__':

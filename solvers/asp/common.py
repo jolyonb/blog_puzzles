@@ -97,18 +97,26 @@ class Puzzle(ABC):
         control.configuration.solve.models = self.args.num
         control.add("base", [], program)
         control.ground([("base", [])])
-        
+
         # Iterate through solutions
         solutions = 0
+        overlap = None
         with control.solve(yield_=True) as handler:
             for model in handler:
                 solutions += 1
                 print(f'Solution {solutions}:')
                 atoms = model.symbols(shown=True)
                 self.solution_handler(atoms)
+                overlap = set(atoms) if overlap is None else overlap.intersection(set(atoms))
                 print()
-            
+                
+            if solutions > 1:
+                print('Overlap of solutions:')
+                self.overlap_handler(list(overlap))
+                print()
+
             print('Search complete. ', end='')
+
             result = handler.get()
             if result.exhausted:
                 if result.satisfiable:
@@ -120,7 +128,7 @@ class Puzzle(ABC):
                     print('No solutions possible.')
             else:
                 print(f'{solutions}+ solutions found (not exhausted).')
-    
+            
     # Abstract methods
 
     @property
@@ -150,6 +158,13 @@ class Puzzle(ABC):
     def solution_handler(self, model):
         """
         Function that is called whenever a solution is found. This is intended to be subclassed.
+        """
+        for entry in model:
+            print(entry.name, entry.arguments)
+
+    def overlap_handler(self, model):
+        """
+        Function that is called whenever multiple solutions are found. This is intended to be subclassed.
         """
         for entry in model:
             print(entry.name, entry.arguments)
