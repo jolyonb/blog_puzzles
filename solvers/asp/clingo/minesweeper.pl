@@ -1,5 +1,6 @@
 % minesweeper.pl
 % Jolyon Bloomfield February 2022
+% https://blog.dodgyfysix.com, https://github.com/jolyonb/blog_puzzles
 % Inputs:
 % #const r=number of rows.
 % #const c=number of columns.
@@ -8,8 +9,8 @@
 
 % Initialization
 % Define our indices
-rows(1..r).  % Row entries
-cols(1..c).  % Column entries
+rows(0..r-1).  % Row entries, 0-indexed to align with python
+cols(0..c-1).  % Column entries, 0-indexed to align with python
 nums(0..8).  % Allowed numbers in a cell
 
 % Create an index for all cells we can manipulate

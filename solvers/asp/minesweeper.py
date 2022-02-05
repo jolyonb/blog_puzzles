@@ -24,7 +24,7 @@ from jinja2 import Template
 
 from solvers.asp.common import Puzzle
 from solvers.common.loaders import load_grid
-from solvers.common.colors import Colors
+from solvers.common.output import Colors, print_chars_with_color
 
 
 template = """
@@ -103,11 +103,11 @@ class MineSweeper(Puzzle):
         for row, line in enumerate(self.grid):
             for col, char in enumerate(line):
                 if char == '#':
-                    self.excluded.append((row + 1, col + 1))  # +1 to move to 1-indexed for clingo
+                    self.excluded.append((row, col))
                 elif char == '*':
-                    self.mines.append((row + 1, col + 1))  # +1 to move to 1-indexed for clingo
+                    self.mines.append((row, col))
                 elif char in '012345678':
-                    self.numbers.append((row+1, col+1, char))  # +1 to move to 1-indexed for clingo
+                    self.numbers.append((row, col, char))
 
     def construct_puzzle_defs(self) -> str:
         """
@@ -138,10 +138,9 @@ class MineSweeper(Puzzle):
         for entry in model:
             if entry.name == 'mine':
                 col, row = entry.arguments
-                grid[row.number - 1][col.number - 1] = '*'
+                grid[row.number][col.number] = '*'
                 
         # Print the grid
-        endchar = '\t' if self.args.tabbed else ''
         colors = {
             '*': Colors.YELLOW,
             '1': Colors.BLUE,
@@ -151,18 +150,7 @@ class MineSweeper(Puzzle):
             '5': Colors.WHITE,
             '6': Colors.CYAN,
         }
-        for row in grid:
-            for char in row:
-                # Handle colors
-                if not endchar and char in colors:
-                    print(colors[char], end='')
-
-                print(char, end=endchar)
-
-                # Reset colors
-                if not endchar:
-                    print(Colors.RESET, end='')
-            print()
+        print_chars_with_color(grid, colors, self.args.tabbed)
 
 
 if __name__ == '__main__':
