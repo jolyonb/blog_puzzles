@@ -1,0 +1,16 @@
+.2...#
+..32.#
+3..2.#
+.2..2*
+..12.#
+
+# Unique solution:
+# .2.*.#
+# **32*#
+# 3*.2.#
+# .2*.2*
+# ..12*#
+#
+# The following line inserts a constraint on the mine count.
+# It is not necessary for this particular puzzle, but may be in other cases.
+mine_count=8
