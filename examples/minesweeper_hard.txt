@@ -12,3 +12,4 @@
 .5.42..3.2...
 
 # This is a challenging problem to do by hand!
+# Taken from here: https://puzzlemadness.co.uk/minesweeper/hard/2022/2/3
