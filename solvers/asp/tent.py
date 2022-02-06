@@ -29,14 +29,14 @@ from solvers.common.output import Colors, print_chars_with_color
 class Chars(object):
     TREE = 'T'
     TENT = 't'
-    EMPTY = '.'
+    GRASS = '.'
     UNKNOWN = '?'
     EXCLUDED = '#'
 
 char_colors = {
     Chars.TREE: Colors.GREEN,
     Chars.TENT: Colors.YELLOW,
-    Chars.EMPTY: Colors.WHITE,
+    Chars.GRASS: Colors.WHITE,
 }
 
 template = """
@@ -109,7 +109,7 @@ class Tent(Puzzle):
         This method is called to load a puzzle from a given file. It should save the results to class variables
         defined in the class' __init__ method.
         """
-        allowed = Chars.TREE + Chars.TENT + Chars.EMPTY + Chars.EXCLUDED
+        allowed = Chars.TREE + Chars.TENT + Chars.GRASS + Chars.EXCLUDED
         grid, settings = load_grid(filename, allowed_chars=allowed, allowed_settings=['row_clues', 'col_clues'])
         self.grid = grid
         self.settings = settings
@@ -184,9 +184,9 @@ class Tent(Puzzle):
             if entry.name == 'tent':
                 col, row = entry.arguments
                 grid[row.number][col.number] = Chars.TENT
-            elif entry.name == 'empty':
+            elif entry.name == 'grass':
                 col, row = entry.arguments
-                grid[row.number][col.number] = Chars.EMPTY
+                grid[row.number][col.number] = Chars.GRASS
                 
         # Figure out if we have room to add in the numerical hints
         max_clue = max(x for x in (self.col_clues + self.row_clues) if x is not None)

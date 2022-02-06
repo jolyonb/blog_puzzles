@@ -1,6 +1,6 @@
 # Minesweeper Rules
 
-Minesweeper puzzles consist of a grid that contains some numbers between 0 and 8 inclusive.
+Minesweeper (also called "tentaizu") puzzles consist of a grid that contains some numbers between 0 and 8 inclusive.
 
 ![Example minesweeper puzzle](minesweeper.png "Example minesweeper puzzle")
 
