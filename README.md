@@ -16,6 +16,7 @@ The solvers are standalone python scripts, although they are in a package struct
 ### ASP Solvers
 
 * Minesweeper
+* Tents (Tents and Trees)
 
 ### Brute Force Solvers
 

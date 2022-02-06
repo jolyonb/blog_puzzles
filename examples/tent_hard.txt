@@ -1,0 +1,39 @@
+.T..TT.T...T.T.
+..............T
+...T..T...TT...
+T.......T......
+.T..T.........T
+T.....T...T....
+..T.T...T......
+.TT........T.T.
+........T......
+....T...TT..TT.
+...T......T....
+...T...T..T.T..
+.T....T........
+...T...T..T....
+T.............T
+
+# Puzzle from https://www.puzzle-tents.com/ (15x15 Hard Tents Puzzle ID: 12,216,681)
+
+# Unique solution:
+# tT.tTTtTt..TtTt
+# ..........t...T
+# t.tT..Tt..TTt.t
+# T...t...Tt.....
+# tT..T.........T
+# T.t.t.T.t.Tt..t
+# t.T.T.t.T......
+# .TTt....t.tT.Tt
+# .t......T...t..
+# ...tTt.tTT..TT.
+# ...T.....tTt.t.
+# .t.T...T..T.T..
+# .T.t.tTt..t.t..
+# t..T...T..T....
+# T..t...t..t..tT
+
+# The following lines define the clues for the rows and columns.
+# If a clue is not present, leave the entry blank.
+row_clues=6,1,5,2,1,5,2,4,2,3,3,1,5,1,4
+col_clues=5,2,2,5,2,2,2,4,3,2,4,2,4,2,4

@@ -1,0 +1,21 @@
+.....T
+...T..
+T.....
+...TT.
+......
+..T.T.
+
+# Puzzle from https://www.puzzle-tents.com/ (6x6 Hard Tents Puzzle ID: 5,574,523)
+
+# Unique solution:
+# ....tT
+# ..tT..
+# T.....
+# t..TTt
+# ...t..
+# .tT.Tt
+
+# The following lines define the clues for the rows and columns.
+# If a clue is not present, leave the entry blank.
+row_clues=1,1,0,2,1,2
+col_clues=1,1,1,1,1,2

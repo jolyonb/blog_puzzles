@@ -34,26 +34,28 @@ class Puzzle(ABC):
         self.handle_args()
         if self.args.verbose:
             print(f'Analyzing {self.puzzletype} puzzle')
-        
+
         # Construct the filename to load the puzzle from
         filename = self.args.filename or get_example_file(self.puzzletype)
         if self.args.verbose:
             print(f'Loading puzzle from {filename}')
-        
+
         # Load puzzle file
         self.load_file(filename)
-        
+
         # Load puzzle logic from file
         logic = self.get_logic()
-        
+
         # Construct the puzzle definition
         puzzle_def = self.construct_puzzle_defs()
-        
+
         # Combine scripts to get the full program
         program = (logic + '\n\n' + puzzle_def + '\n')
-        if self.args.verbose:
+        if self.args.verbose or self.args.code:
             print(program)
-        
+        if self.args.code:
+            return
+
         # Solve the system
         print('Beginning solve...')
         print()
@@ -73,6 +75,9 @@ class Puzzle(ABC):
                             action="store_true")
         parser.add_argument("-v", "--verbose",
                             help="Print verbose output (includes clingo script)",
+                            action="store_true")
+        parser.add_argument("-c", "--code",
+                            help="Only generate clingo code; do not attempt to solve",
                             action="store_true")
         parser.add_argument("-n", "--num", help="Number of solutions to search for (0=all)", type=int, default=0)
         self.args = parser.parse_args()
