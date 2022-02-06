@@ -23,9 +23,8 @@ cell(C, R) :- rows(R), cols(C), not excluded(C, R).
 
 % Rule 2: Cells containing a number must have that many mines adjacent to them
 {mine(Cadj, Radj) : adj(Cadj, Radj, C, R)} = N :- number(C, R, N).
-
-% Adjacency rule, specifying if (Cadj, Radj) is adjacent to (C, R)
-adj(Cadj, Radj, C, R) :- cell(C, R), cell(Cadj, Radj), |R-Radj|**2 + |C-Cadj|**2 <= 2.
+% Adjacency helper, specifying if (Cadj, Radj) is adjacent to (C, R)
+adj(Cadj, Radj, C, R) :- cell(C, R), cell(Cadj, Radj), |R-Radj|**2 + |C-Cadj|**2 <= 2, |R-Radj|**2 + |C-Cadj|**2 > 0.
 
 #show mine/2.
 #show number/3.

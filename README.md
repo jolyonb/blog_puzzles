@@ -13,10 +13,12 @@ The solvers are standalone python scripts, although they are in a package struct
 
 ## List of Solvers
 
+The below links are to the rules for the puzzle as implemented in the solvers here.
+
 ### ASP Solvers
 
-* Minesweeper
-* Tents (Tents and Trees)
+* [Minesweeper](rules/minesweeper.md)
+* [Tent (Tents and Trees)](rules/tent.md)
 
 ### Brute Force Solvers
 
