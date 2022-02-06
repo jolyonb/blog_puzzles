@@ -19,8 +19,6 @@ excluded(-100000,-100000).  % Just in case nothing else is excluded
 cell(C, R) :- rows(R), cols(C), not excluded(C, R), not tree(C, R).
 
 % Processing
-{tent(C, R); empty(C, R)} = 1 :- cell(C, R).
-% Processing
 % Rule 1: Cells either contain a tent or are empty.
 {tent(C, R); empty(C, R)} = 1 :- cell(C, R).
 
@@ -44,12 +42,6 @@ adj(Cadj, Radj, C, R) :- cell(C, R), cell(Cadj, Radj), |R-Radj| + |C-Cadj| = 1.
 % Diagonal
 adj(Cadj, Radj, C, R) :- cell(C, R), cell(Cadj, Radj), |R-Radj| = 1, |C-Cadj| = 1.
 :- tent(C1, R1), tent(C2, R2), adj(C1, R1, C2, R2).
-
-% Rule 6: Number of tents = number of trees
-% This rule should be unnecessary...
-tentcount(N) :- N = #count{C, R: tent(C, R)}.
-treecount(N) :- N = #count{C, R: tree(C, R)}.
-X = Y :- treecount(X), tentcount(Y).
 
 #show tent/2.
 #show empty/2.
