@@ -1,6 +1,6 @@
 # Minesweeper Rules
 
-Minesweeper puzzles consist of a grid containing empty cells and numbers between 0 and 8 (inclusive).
+Minesweeper puzzles consist of a grid that contains some numbers between 0 and 8 inclusive.
 
 ![Example minesweeper puzzle](minesweeper.png "Example minesweeper puzzle")
 
@@ -16,6 +16,6 @@ Here is the solution to the above problem:
 
 * Some minesweeper puzzles specify the total number of mines in the grid; typically, this extra knowledge is required to uniquely solve the grid.
 
-## Links to Minesweeper puzzles:
+## Links to Minesweeper puzzles
 
 * https://puzzlemadness.co.uk/minesweeper/

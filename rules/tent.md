@@ -19,6 +19,6 @@ Here is the solution to the above problem:
 
 * It is not necessary for all rows/columns to be clued.
 
-## Links to tent puzzles:
+## Links to tent puzzles
 
 * https://www.puzzle-tents.com/
