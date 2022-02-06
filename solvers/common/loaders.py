@@ -4,16 +4,16 @@ loaders.py
 Contains routines common to loading files from disk.
 """
 
-import os
 from typing import List, Tuple, Dict
+from pathlib import Path
 
 
 def get_example_file(puzzletype: str) -> str:
     """
     Returns the example filename for the given puzzle type.
     """
-    module_path = os.path.dirname(__file__)
-    return os.path.join(module_path, '..', '..', 'examples', f'{puzzletype}.txt')
+    file_path = Path(__file__).parents[2] / 'examples' / f'{puzzletype}.txt'
+    return str(file_path)
 
 
 def load_grid(filename: str,
