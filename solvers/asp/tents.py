@@ -187,6 +187,18 @@ class Tent(Puzzle):
             elif entry.name == 'empty':
                 col, row = entry.arguments
                 grid[row.number][col.number] = Chars.EMPTY
+                
+        # Figure out if we have room to add in the numerical hints
+        max_clue = max(x for x in (self.col_clues + self.row_clues) if x is not None)
+        if self.args.tabbed or max_clue < 10:
+            # We can add in the clues!
+            # Add in the column clues first
+            clean = lambda x: str(x) if x is not None else ' '
+            grid = [[clean(x) for x in self.col_clues]] + grid
+            # Add in the row clues next
+            extended_row_clues = [' '] + [clean(x) for x in self.row_clues]
+            for idx, row in enumerate(grid):
+                row.insert(0, extended_row_clues[idx])
 
         # Print the grid
         print_chars_with_color(grid, char_colors, self.args.tabbed)
