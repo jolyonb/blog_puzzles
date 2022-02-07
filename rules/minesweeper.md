@@ -8,7 +8,7 @@ The aim is to identify which cells contain mines, by satsifying the following co
 
 * Each number indicates how many mines are adjacent to it (including diagonally).
 
-Here is the solution to the above problem:
+Here is the solution to the above puzzle:
 
 ![Example minesweeper puzzle solution](minesweeper_sol.png "Example minesweeper puzzle solution")
 

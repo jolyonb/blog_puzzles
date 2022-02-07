@@ -20,6 +20,7 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 * [Minesweeper](rules/minesweeper.md)
 * [Tent (Tents and Trees)](rules/tent.md)
 * [n-Queens](rules/n-queens.md) (Note: no python wrapper; clingo code in [other asp solvers](other asp solvers))
+* [Star Battle](rules/starbattle.md)
 
 ### Brute Force Solvers
 
@@ -32,7 +33,7 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 
 ## List of puzzle types I'd like to write a solver for
 
-* Star Battle
+* Shapeless Star Battle variant
 * Ripple Effect
 * Sudoku + variants
 * Hidato/numberlink

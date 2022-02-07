@@ -12,7 +12,7 @@ The idea is to place tents and empty spaces (typically green for grass!) in the 
 * Tents must be tied to a single tree only.
 * Tents may not be placed next to each other (including diagonally).
 
-Here is the solution to the above problem:
+Here is the solution to the above puzzle:
 
 ![Example tent puzzle solution](tent_sol.png "Example tent puzzle solution")
 

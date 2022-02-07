@@ -5,3 +5,6 @@
 { q(1..n, C) } = 1 :- C = 1..n.  % Place one queen per column
 :- { q(D-C, C) } >= 2, D = 2..2*n.  % Constraint: At most 1 queen per diagonal (first direction)
 :- { q(D+C, C) } >= 2, D = 1-n..n-1.  % Constraint: At most 1 queen per diagonal (second direction)
+
+% Alternative diagonal constraint (O(n^2)):
+% :- queen(C1, R1), queen(C2, R2), R2 > R1, |C1-C2| = |R1-R2|.

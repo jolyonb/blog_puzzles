@@ -71,7 +71,7 @@ class Puzzle(ABC):
         parser = argparse.ArgumentParser()
         parser.add_argument('filename', nargs='?', help="Filename to read puzzle from", type=str, default=None)
         parser.add_argument("-t", "--tabbed",
-                            help="Output grid using tabs instead of pretty printing",
+                            help="Output grid using tabs instead of pretty printing (for copy/paste to spreadsheets)",
                             action="store_true")
         parser.add_argument("-v", "--verbose",
                             help="Print verbose output (includes clingo script)",
@@ -79,7 +79,7 @@ class Puzzle(ABC):
         parser.add_argument("-c", "--code",
                             help="Only generate clingo code; do not attempt to solve",
                             action="store_true")
-        parser.add_argument("-n", "--num", help="Number of solutions to search for (0=all)", type=int, default=0)
+        parser.add_argument("-n", "--num", help="Number of solutions to search for (0=all, default)", type=int, default=0)
         self.args = parser.parse_args()
     
     def get_logic(self) -> str:

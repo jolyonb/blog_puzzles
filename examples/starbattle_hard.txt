@@ -1,0 +1,38 @@
+aabbbbcccc
+aadddbccee
+adddccccee
+adddccccfe
+addgggcffe
+hgggggfffe
+hhggggiiee
+hhggggieee
+hhjjjiieee
+hhhjjjjjjj
+
+# Puzzle from https://www.puzzle-star-battle.com/ (10x10/2★ Normal Star Battle Puzzle ID: 634,607)
+#
+# Unique solution:
+# ┌───┬───────┬───────┐
+# │. *│. * . .│. . . .│
+# │   ├─────┐ │   ┌───┤
+# │. .│. . .│*│. *│. .│
+# │ ┌─┘   ┌─┴─┘   │   │
+# │*│. * .│. . . .│. .│
+# │ │     │       ├─┐ │
+# │.│. . .│. . * .│*│.│
+# │ │   ┌─┴───┐ ┌─┘ │ │
+# │.│. *│. * .│.│. .│.│
+# ├─┼───┘     ├─┘   │ │
+# │*│. . . . .│. . *│.│
+# │ └─┐       ├───┬─┘ │
+# │. .│. . * .│* .│. .│
+# │   │       │ ┌─┘   │
+# │. *│. . . .│.│. . *│
+# │   ├─────┬─┘ │     │
+# │. .│. . .│* .│* . .│
+# │   └─┐   └───┴─────┤
+# │. . .│* . . . . . *│
+# └─────┴─────────────┘
+
+# Define the star rating of the puzzle
+star_rating=2
