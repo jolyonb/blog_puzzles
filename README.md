@@ -19,6 +19,7 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 
 * [Minesweeper](rules/minesweeper.md)
 * [Tent (Tents and Trees)](rules/tent.md)
+* [n-Queens](rules/n-queens.md) (Note: no python wrapper; clingo code in [other asp solvers](other asp solvers))
 
 ### Brute Force Solvers
 
@@ -31,9 +32,10 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 
 ## List of puzzle types I'd like to write a solver for
 
+* Star Battle
 * Ripple Effect
 * Sudoku + variants
-* Hidato
+* Hidato/numberlink
 * Skyscraper
 * Masyu
 * Corral/cave/bag
@@ -43,7 +45,7 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 * Akari
 * Kakuro
 * Battleships
-* Numberlink
 * Hitori
 * Yajilin + variants
 * Tapa
+* Slitherlink
