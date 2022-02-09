@@ -71,7 +71,8 @@ def print_chars_with_color(chars: Union[List[str], List[List[str]]],
 
 def print_chars_with_color_and_region(chars: Union[List[str], List[List[str]]],
                                       regions: Union[List[str], List[List[str]]],
-                                      colors: Dict[str, str] = None):
+                                      colors: Dict[str, str] = None,
+                                      outside_region_char: str = ''):
     """
     Take in a list of strings, where each character lives in a region as defined by the regions list.
     Print boxes around all regions, and print characters in their region, using the colors dict to
@@ -92,11 +93,11 @@ def print_chars_with_color_and_region(chars: Union[List[str], List[List[str]]],
     def regions_different(r1, c1, r2, c2) -> bool:
         """
         Compare two cells. If they are in different regions, return True. Else, return False.
-        If one (or both) of the cells is outside the grid, return True.
+        If a cell is outside the grid, use the outside_region_char for that cell's region.
         """
-        if out_of_box(r1, c1) or out_of_box(r2, c2):
-            return True
-        return regions[r1][c1] != regions[r2][c2]
+        cell1 = outside_region_char if out_of_box(r1, c1) else regions[r1][c1]
+        cell2 = outside_region_char if out_of_box(r2, c2) else regions[r2][c2]
+        return cell1 != cell2
 
     def get_entry(grid, row, col):
         """Returns the requested grid entry, returning a space if out of bounds"""

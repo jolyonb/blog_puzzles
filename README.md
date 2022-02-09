@@ -19,8 +19,10 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 
 * [Minesweeper](rules/minesweeper.md)
 * [Tent (Tents and Trees)](rules/tent.md)
-* [n-Queens](rules/n-queens.md) (Note: no python wrapper; clingo code in [other asp solvers](other asp solvers))
 * [Star Battle](rules/starbattle.md)
+* [Slitherlink](rules/slitherlink.md)
+
+Other ASP solvers without a python wrapper are documented [here](other%20asp%20solvers/README.md).
 
 ### Brute Force Solvers
 
@@ -49,4 +51,3 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 * Hitori
 * Yajilin + variants
 * Tapa
-* Slitherlink
