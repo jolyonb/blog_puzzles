@@ -20,7 +20,7 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 * [Minesweeper](rules/minesweeper.md)
 * [Tent (Tents and Trees)](rules/tent.md)
 * [Star Battle](rules/starbattle.md)
-* [Slitherlink](rules/slitherlink.md)
+* [Slitherlink (Fences, Loop the Loop, Loop)](rules/slitherlink.md)
 
 Other ASP solvers without a python wrapper are documented [here](other%20asp%20solvers/README.md).
 
