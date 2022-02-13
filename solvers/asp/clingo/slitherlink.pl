@@ -12,10 +12,8 @@ row(R) :- R=0..rows-1.
 col(C) :- C=0..cols-1.
 
 % Mark outside the grid as excluded
-excluded(-1, R) :- row(R).
-excluded(cols+1, R) :- row(R).
-excluded(C, -1) :- col(C).
-excluded(C, rows+1) :- col(C).
+excluded(-1, R; cols+1, R) :- row(R).
+excluded(C, -1; C, rows+1) :- col(C).
 
 % Mark available cells, ignoring any exclusions
 cell(C, R) :- col(C), row(R), not excluded(C, R).
