@@ -19,7 +19,7 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 
 * [Minesweeper](rules/minesweeper.md)
 * [Tent (Tents and Trees)](rules/tent.md)
-* [Star Battle](rules/starbattle.md)
+* [Star Battle](rules/starbattle.md) (including shapeless variant)
 * [Slitherlink (Fences, Loop the Loop, Loop)](rules/slitherlink.md)
 * [Hashi (Bridges)](rules/hashi.md)
 
@@ -36,7 +36,6 @@ Other ASP solvers without a python wrapper are documented [here](other%20asp%20s
 
 ## List of puzzle types I'd like to write a solver for
 
-* Shapeless Star Battle variant
 * Ripple Effect
 * Sudoku + variants
 * Hidato/numberlink
