@@ -18,7 +18,9 @@ from typing import List, Dict, Union
 # '┴',  # u2534
 # '└',  # u2514
 # '┘',  # u2518
-# ' ',  # space!
+# '═',  # u2550
+# '║',  # u2551
+
 
 # Map tuples of characters around a cell to figure out what connective entry is needed
 box_mapping = {
@@ -36,6 +38,7 @@ box_mapping = {
     (' ', ' ', '─', '─'): '─',
     (' ', ' ', ' ', ' '): ' ',
 }
+
 
 class Colors:
     BLACK = '\u001b[30m'
@@ -69,6 +72,20 @@ def print_chars_with_color(chars: Union[List[str], List[List[str]]],
         print()
 
 
+def buffer_grid(grid: Union[List[str], List[List[str]]]) -> List[List[str]]:
+    """Takes in a grid of characters, and inserts extra columns and rows between every character"""
+    rows = len(grid)
+    cols = len(grid[0])
+
+    newgrid = [[' ' for _ in range(2 * cols + 1)] for _ in range(2 * rows + 1)]
+
+    for row_idx, line in enumerate(grid):
+        for col_idx, char in enumerate(line):
+            newgrid[2 * row_idx + 1][2 * col_idx + 1] = char
+
+    return newgrid
+
+
 def print_chars_with_color_and_region(chars: Union[List[str], List[List[str]]],
                                       regions: Union[List[str], List[List[str]]],
                                       colors: Dict[str, str] = None,
@@ -80,11 +97,9 @@ def print_chars_with_color_and_region(chars: Union[List[str], List[List[str]]],
     
     Does not work with tabbed mode!
     """
+
     rows = len(chars)
     cols = len(chars[0])
-
-    # Take our old grid of characters (r, c) and turn it into a new grid (2r+1, 2c+1)
-    newgrid = [[' ' for c in range(2 * cols + 1)] for r in range(2 * rows + 1)]
 
     def out_of_box(row, col) -> bool:
         """Returns True if the requested cell is out of the grid, or False if it's in the grid."""
@@ -105,11 +120,8 @@ def print_chars_with_color_and_region(chars: Union[List[str], List[List[str]]],
             return ' '
         return grid[row][col]
 
-    # Enter the old grid into the new grid in the (odd, odd) grid locations
-    # (other locations will be used for region lines)
-    for row_idx, line in enumerate(chars):
-        for col_idx, char in enumerate(line):
-            newgrid[2 * row_idx + 1][2 * col_idx + 1] = char
+    # Take our old grid of characters (r, c) and turn it into a new grid (2r+1, 2c+1)
+    newgrid = buffer_grid(chars)
 
     # Use region comparison to fill in (odd, even) and (even, odd) cells
     for row_idx, line in enumerate(newgrid):

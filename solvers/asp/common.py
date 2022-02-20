@@ -133,7 +133,13 @@ class Puzzle(ABC):
                     print('No solutions possible.')
             else:
                 print(f'{solutions}+ solutions found (not exhausted).')
-            
+
+        if self.args.verbose:
+            print()
+            print('Solver statistics')
+            print('Atoms:', int(control.statistics['problem']['lp']['atoms']))
+            print('Rules:', int(control.statistics['problem']['lp']['rules_tr']))
+
     # Abstract methods
 
     @property
@@ -169,7 +175,7 @@ class Puzzle(ABC):
 
     def overlap_handler(self, model):
         """
-        Function that is called whenever multiple solutions are found. This is intended to be subclassed.
+        Function that is called whenever multiple solutions are found.
+        If behavior other than the solution_handler method is desired, this can be subclassed.
         """
-        for entry in model:
-            print(entry.name, entry.arguments)
+        self.solution_handler(model)

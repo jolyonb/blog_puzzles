@@ -1,0 +1,28 @@
+3...2..
+.1.4..2
+....2..
+3.2....
+....3.3
+..1....
+2..3..1
+
+# Puzzle from https://www.puzzle-bridges.com/ (7x7 Hashi Normal Puzzle ID: 3,175,539)
+#
+# Unique solution:
+# 3═══════2 . .
+# │
+# │ 1───4─────2
+# │     ║     │
+# │ . . ║ 2 . │
+# │     ║ ║   │
+# 3───2 ║ ║ . │
+# │   │ ║ ║   │
+# │ . │ ║ 3───3
+# │   │ ║     │
+# │ . 1 ║ . . │
+# │     ║     │
+# 2─────3 . . 1
+#
+# The following options are available:
+# max_bridges=2
+# The default is 2
