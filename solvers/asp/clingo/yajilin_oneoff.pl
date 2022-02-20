@@ -1,4 +1,4 @@
-% yajilin.pl
+% yajilin_oneoff.pl
 % Jolyon Bloomfield February 2022
 % https://blog.dodgyfysix.com, https://github.com/jolyonb/blog_puzzles
 % Inputs:
@@ -48,10 +48,14 @@ dir(C, R, w) :- loop(C, R, W), west(W).
 :- black(C, R), black(C, R+1).
 
 % Black squares must satisfy number constraints
-:- {black(C, R2) : row(R2), R2 < R} != N, number(C, R, N, n).
-:- {black(C, R2) : row(R2), R2 > R} != N, number(C, R, N, s).
-:- {black(C2, R) : col(C2), C2 > C} != N, number(C, R, N, e).
-:- {black(C2, R) : col(C2), C2 < C} != N, number(C, R, N, w).
+% This is the only block that changes from standard yajilin
+mod(-1; 1).   % Possible modifiers
+{modnumber(C, R, N + Offset, D) : mod(Offset)} = 1 :- number(C, R, N, D).   % Choose a single modifier for each number
+% Now apply the different modifiers
+:- {black(C, R2) : row(R2), R2 < R} != N, modnumber(C, R, N, n).
+:- {black(C, R2) : row(R2), R2 > R} != N, modnumber(C, R, N, s).
+:- {black(C2, R) : col(C2), C2 > C} != N, modnumber(C, R, N, e).
+:- {black(C2, R) : col(C2), C2 < C} != N, modnumber(C, R, N, w).
 
 % Finally, the global single-loop constraint
 % Create a list of vertices that are on the loop

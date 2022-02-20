@@ -39,6 +39,15 @@ box_mapping = {
     (' ', ' ', ' ', ' '): ' ',
 }
 
+loop_directions = {
+    'ew': '─',
+    'ns': '│',
+    'se': '┌',
+    'sw': '┐',
+    'ne': '└',
+    'nw': '┘'
+}
+
 
 class Colors:
     BLACK = '\u001b[30m'

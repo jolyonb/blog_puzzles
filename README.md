@@ -22,6 +22,7 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 * [Star Battle](rules/starbattle.md) (including shapeless variant)
 * [Slitherlink (Fences, Loop the Loop, Loop)](rules/slitherlink.md)
 * [Hashi (Bridges)](rules/hashi.md)
+* [Yajilin (Arrow Ring)](rules/yajilin.md) (including a number of variants)
 
 Other ASP solvers without a python wrapper are documented [here](other%20asp%20solvers/README.md).
 
@@ -49,5 +50,4 @@ Other ASP solvers without a python wrapper are documented [here](other%20asp%20s
 * Kakuro
 * Battleships
 * Hitori
-* Yajilin + variants
 * Tapa

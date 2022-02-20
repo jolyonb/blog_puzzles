@@ -1,4 +1,4 @@
-% yajilin.pl
+% yajilin_closedloop.pl
 % Jolyon Bloomfield February 2022
 % https://blog.dodgyfysix.com, https://github.com/jolyonb/blog_puzzles
 % Inputs:
@@ -47,11 +47,12 @@ dir(C, R, w) :- loop(C, R, W), west(W).
 :- black(C, R), black(C+1, R).
 :- black(C, R), black(C, R+1).
 
-% Black squares must satisfy number constraints
-:- {black(C, R2) : row(R2), R2 < R} != N, number(C, R, N, n).
-:- {black(C, R2) : row(R2), R2 > R} != N, number(C, R, N, s).
-:- {black(C2, R) : col(C2), C2 > C} != N, number(C, R, N, e).
-:- {black(C2, R) : col(C2), C2 < C} != N, number(C, R, N, w).
+% Cell wall crossings must satisfy number constraints
+% This is the only block that is changed from standard yajilin
+:- {dir(C, R2, n) : row(R2), R2 < R} != N, number(C, R, N, n).  % Count north movers only
+:- {dir(C, R2, n) : row(R2), R2 > R} != N, number(C, R, N, s).  % Count north movers only
+:- {dir(C2, R, e) : col(C2), C2 > C} != N, number(C, R, N, e).  % Count east movers only
+:- {dir(C2, R, e) : col(C2), C2 < C} != N, number(C, R, N, w).  % Count east movers only
 
 % Finally, the global single-loop constraint
 % Create a list of vertices that are on the loop

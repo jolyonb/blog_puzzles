@@ -22,6 +22,7 @@ from solvers.asp.common import Puzzle
 from solvers.common.loaders import load_grid
 from solvers.common.output import Colors, print_chars_with_color_and_region
 
+
 class Chars(object):
     SHEEP = 'S'
     WOLF = 'W'
@@ -29,6 +30,7 @@ class Chars(object):
     UNKNOWN = '?'
     EXCLUDED = '#'
     NUMBERS = '01234'
+
 
 char_colors = {
     Chars.SHEEP: Colors.YELLOW,

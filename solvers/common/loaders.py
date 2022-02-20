@@ -67,3 +67,63 @@ def load_grid(filename: str,
             raise ValueError(f'Bad line in grid: "{line}"; was expecting length {count} but found length {len(line)}')
     
     return grid, settings
+
+
+def load_2grids(filename: str,
+                allowed_chars1: str,
+                allowed_chars2: str,
+                allowed_settings: List[str] = None
+                ) -> Tuple[List[str], List[str], Dict[str, str]]:
+    """
+    Loads two square grids from the given filename, separated by a blank line. The two grids just have the same shape.
+
+    After the grids, optional settings are allowed. Leave an empty line after the grid, then include settings as
+    "setting_name=value". Any line starting with # in the settings section is treated as a comment and ignored.
+    """
+    with open(filename) as f:
+        lines = f.readlines()
+        # Remove newline characters
+        lines = [line.rstrip('\n') for line in lines]
+
+    allowed_settings = allowed_settings or []
+    grids = ([], [])
+    allowed_chars = (allowed_chars1, allowed_chars2)
+    current_grid = 0
+    settings = {}
+    for line in lines:
+        # Check if we're done with the current grid
+        if current_grid < 2 and line == '':
+            current_grid += 1
+            continue
+
+        if current_grid < 2:
+            # Append to the grid
+            for c in line:
+                if c not in allowed_chars[current_grid]:
+                    raise ValueError(f'Invalid character in grid: "{c}"')
+            grids[current_grid].append(line)
+        elif line != '':
+            # Handle setting
+            if line.startswith('#'):
+                # Treat as a comment
+                continue
+            if '=' not in line:
+                raise ValueError(f'Error reading line: "{line}"; expected = to appear in setting')
+            key, val = line.split('=', 1)
+            if key not in allowed_settings:
+                raise ValueError(f'Unknown setting: "{key}')
+            if key in settings:
+                raise ValueError(f'Duplicate setting: "{key}')
+            settings[key] = val
+
+    # Check that all grids have the same rectangular shape
+    rows = len(grids[0])
+    cols = len(grids[0][0])
+    for grid in grids:
+        if len(grid) != rows:
+            raise ValueError(f'Grids have different row counts. Was expecting {rows} but found {len(grid)}.')
+        for line in grid:
+            if len(line) != cols:
+                raise ValueError(f'Bad line in grid: "{line}"; was expecting length {cols} but found length {len(line)}')
+
+    return grids[0], grids[1], settings
