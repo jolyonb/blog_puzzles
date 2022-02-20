@@ -1,0 +1,19 @@
+#..#..
+#...##
+......
+##..##
+#...#.
+.#...#
+
+# Puzzle from https://www.puzzle-star-battle.com/ (6x6/1★ Shapeless Star Battle Puzzle ID: 10,506,146)
+#
+# Unique solution:
+# #..#.*
+# #.*.##
+# *.....
+# ##.*##
+# #*..#.
+# .#..*#
+#
+# Define the star rating of the puzzle
+star_rating=1

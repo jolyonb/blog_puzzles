@@ -158,6 +158,9 @@ class Hashi(Puzzle):
 
         print_chars_with_color(grid, colors=char_colors)
 
+        if self.args.tabbed:
+            print('Sorry, cannot print tabbed output for hashi puzzles.')
+
 
 if __name__ == '__main__':
     solver = Hashi()
