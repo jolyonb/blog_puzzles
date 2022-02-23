@@ -56,7 +56,7 @@ template = """
 #const cols={{ columns }}.
 
 % Number cells
-% number(C, R, num, dir).  % Choose dir=n/s/e/w.
+% number(col, row, num, dir).  % Choose dir=n/s/e/w.
 {% for row, col, num, dir in numbers %}
 number({{ col }}, {{ row }}, {{ num }}, {{ dir }}).
 {% endfor %}

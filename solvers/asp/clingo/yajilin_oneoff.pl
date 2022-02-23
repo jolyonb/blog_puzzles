@@ -50,7 +50,8 @@ dir(C, R, w) :- loop(C, R, W), west(W).
 % Black squares must satisfy number constraints
 % This is the only block that changes from standard yajilin
 mod(-1; 1).   % Possible modifiers
-{modnumber(C, R, N + Offset, D) : mod(Offset)} = 1 :- number(C, R, N, D).   % Choose a single modifier for each number
+% Choose a single modifier for each number
+{modnumber(C, R, N + Offset, D) : mod(Offset)} = 1 :- number(C, R, N, D).
 % Now apply the different modifiers
 :- {black(C, R2) : row(R2), R2 < R} != N, modnumber(C, R, N, n).
 :- {black(C, R2) : row(R2), R2 > R} != N, modnumber(C, R, N, s).
