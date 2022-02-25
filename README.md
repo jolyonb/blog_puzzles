@@ -23,6 +23,7 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 * [Slitherlink (Fences, Loop the Loop, Loop)](rules/slitherlink.md)
 * [Hashi (Bridges)](rules/hashi.md)
 * [Yajilin (Arrow Ring)](rules/yajilin.md) (including a number of variants)
+* [Hitori (Alone/One Person/Leave Me Alone)](rules/hitori.md)
 
 Other ASP solvers without a python wrapper are documented [here](other%20asp%20solvers/README.md).
 
@@ -49,5 +50,4 @@ Other ASP solvers without a python wrapper are documented [here](other%20asp%20s
 * Akari
 * Kakuro
 * Battleships
-* Hitori
 * Tapa
