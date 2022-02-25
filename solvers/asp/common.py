@@ -139,6 +139,8 @@ class Puzzle(ABC):
             print('Solver statistics')
             print('Atoms:', int(control.statistics['problem']['lp']['atoms']))
             print('Rules:', int(control.statistics['problem']['lp']['rules_tr']))
+            print('Variables:', int(control.statistics['problem']['generator']['vars']))
+            print('Constraints:', int(control.statistics['problem']['generator']['complexity']))
 
     # Abstract methods
 

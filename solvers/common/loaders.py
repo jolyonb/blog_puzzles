@@ -18,10 +18,14 @@ def get_example_file(puzzletype: str) -> str:
 
 def load_grid(filename: str,
               allowed_chars: str,
-              allowed_settings: List[str] = None
+              allowed_settings: List[str] = None,
+              allowed_delimiters: str = None,
               ) -> Tuple[List[str], Dict[str, str]]:
     """
     Loads a square grid from the given filename.
+
+    If allowed_delimiters is set (typically to ',\t'), then if one of those characters is detected in the first
+    row, it will be treated as the delimiter between all cells.
     
     After the grid, optional settings are allowed. Leave an empty line after the grid, then include settings as
     "setting_name=value". Any line starting with # in the settings section is treated as a comment and ignored.
@@ -30,7 +34,15 @@ def load_grid(filename: str,
         lines = f.readlines()
         # Remove newline characters
         lines = [line.rstrip('\n') for line in lines]
-    
+
+    # Identify if a delimiter is used
+    delimiter = None
+    if allowed_delimiters:
+        for x in allowed_delimiters:
+            if x in lines[0]:
+                delimiter = x
+                break
+
     allowed_settings = allowed_settings or []
     in_grid = True
     grid = []
@@ -42,10 +54,12 @@ def load_grid(filename: str,
         
         if in_grid:
             # Append to the grid
-            for c in line:
-                if c not in allowed_chars:
-                    raise ValueError(f'Invalid character in grid: "{c}"')
-            grid.append(line)
+            clean_line = line.split(delimiter) if delimiter else line
+            for entry in clean_line:
+                for c in entry:
+                    if c not in allowed_chars:
+                        raise ValueError(f'Invalid character in grid: "{c}"')
+            grid.append(clean_line)
         elif line != '':
             # Handle setting
             if line.startswith('#'):

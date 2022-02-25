@@ -1,0 +1,14 @@
+24514
+15422
+34351
+41134
+21342
+
+# Puzzle from https://www.puzzle-hitori.com/ (5x5 Easy Hitori Puzzle ID: 12,783,857)
+#
+# Unique solution:
+# 2#514
+# 1542#
+# 34#51
+# 4#13#
+# #1342
