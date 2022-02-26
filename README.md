@@ -17,12 +17,12 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 
 ### ASP Solvers
 
-* [Minesweeper](rules/minesweeper.md)
-* [Tent (Tents and Trees)](rules/tent.md)
-* [Star Battle](rules/starbattle.md) (including shapeless variant)
-* [Slitherlink (Fences, Loop the Loop, Loop)](rules/slitherlink.md)
-* [Hashi (Bridges)](rules/hashi.md)
-* [Yajilin (Arrow Ring)](rules/yajilin.md) (including a number of variants)
+* [Minesweeper](rules/minesweeper.md) ([Blog post 1](https://blog.dodgyfysix.com/2022/02/02/minesweeper-solver-in-asp/), [Blog post 2](https://blog.dodgyfysix.com/2022/02/05/minesweeper-in-asp-part-ii/))
+* [Tent (Tents and Trees)](rules/tent.md) ([Blog post](https://blog.dodgyfysix.com/2022/02/06/tent-puzzles-in-asp/))
+* [Star Battle](rules/starbattle.md) (including shapeless variant) ([Blog post](https://blog.dodgyfysix.com/2022/02/20/star-battle-puzzles-in-asp/))
+* [Slitherlink (Fences, Loop the Loop, Loop)](rules/slitherlink.md) ([Blog post](https://blog.dodgyfysix.com/2022/02/09/slitherlink-puzzles-in-asp/))
+* [Hashi (Bridges)](rules/hashi.md) ([Blog post](https://blog.dodgyfysix.com/2022/02/20/hashi-puzzles-in-asp/))
+* [Yajilin (Arrow Ring)](rules/yajilin.md) (including a number of variants) ([Blog post](https://blog.dodgyfysix.com/2022/02/20/yajilin-puzzles-in-asp/))
 * [Hitori (Alone/One Person/Leave Me Alone)](rules/hitori.md)
 * [LITS (Nuruomino)](rules/lits.md)
 
