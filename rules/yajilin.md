@@ -2,7 +2,7 @@
 
 Yajilin (also called "Arrow Ring") puzzles consist of a grid with some cells containing a number and an arrow. There may also be some empty shaded cells.
 
-![Example yajilin puzzle](yajilin.png "Example yajilin puzzle")
+![Example yajilin puzzle](images/yajilin.png "Example yajilin puzzle")
 
 (Images from [Wikipedia](https://en.wikipedia.org/wiki/Yajilin))
 
@@ -10,7 +10,7 @@ The aim of this puzzle is to construct a single continuous non-intersecting loop
 
 Here is the solution to the above puzzle:
 
-![Example yajilin puzzle solution](yajilin_sol.png "Example yajilin puzzle solution")
+![Example yajilin puzzle solution](images/yajilin_sol.png "Example yajilin puzzle solution")
 
 ## Variations
 

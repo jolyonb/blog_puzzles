@@ -2,7 +2,7 @@
 
 Minesweeper (also called "tentaizu") puzzles consist of a grid that contains some numbers between 0 and 8 inclusive.
 
-![Example minesweeper puzzle](minesweeper.png "Example minesweeper puzzle")
+![Example minesweeper puzzle](images/minesweeper.png "Example minesweeper puzzle")
 
 The aim is to identify which cells contain mines, by satsifying the following condition:
 
@@ -10,7 +10,7 @@ The aim is to identify which cells contain mines, by satsifying the following co
 
 Here is the solution to the above puzzle:
 
-![Example minesweeper puzzle solution](minesweeper_sol.png "Example minesweeper puzzle solution")
+![Example minesweeper puzzle solution](images/minesweeper_sol.png "Example minesweeper puzzle solution")
 
 ## Variations
 

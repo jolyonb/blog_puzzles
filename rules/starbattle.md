@@ -2,7 +2,7 @@
 
 Star Battle puzzles are played on an NxN square grid that has been divided into N regions. Each grid also has a star rating (usually 1-3 stars, with smaller grids having smaller ratings). The following is a 1-star grid:
 
-![Example star battle puzzle](starbattle.png "Example star battle puzzle")
+![Example star battle puzzle](images/starbattle.png "Example star battle puzzle")
 
 The aim is to place a number of stars equal to the star rating in each row, column and region, subject to the following condition:
  
@@ -10,7 +10,7 @@ The aim is to place a number of stars equal to the star rating in each row, colu
 
 Here is the solution to the above puzzle:
 
-![Example star battle puzzle solution](starbattle_sol.png "Example star battle puzzle solution")
+![Example star battle puzzle solution](images/starbattle_sol.png "Example star battle puzzle solution")
 
 ## Variations
 

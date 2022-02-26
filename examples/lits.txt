@@ -1,0 +1,16 @@
+aaabbb
+accccb
+acdccb
+acdddd
+aeeffd
+eeffff
+
+# Puzzle from https://www.puzzle-lits.com/ (6x6 Normal LITS Puzzle ID: 14,743,608)
+#
+# Unique solution:
+#   I	.	.	.	L	L
+#   I	L	L	L	.	L
+#   I	.	.	L	.	L
+#   I	.	I	I	I	I
+#   .	S	S	.	T	.
+#   S	S	.	T	T	T

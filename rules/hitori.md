@@ -2,7 +2,7 @@
 
 Hitori (Japanese for "alone", "one person", or "leave me alone") puzzles consist of a grid (almost always square) with each cell containing a number.
 
-![Example hitori puzzle](hitori.png "Example hitori puzzle")
+![Example hitori puzzle](images/hitori.png "Example hitori puzzle")
 
 (Images from [Wikipedia](https://en.wikipedia.org/wiki/Hitori))
 
@@ -14,9 +14,9 @@ The aim is to black out some cells to satisfy the following conditions:
 
 It's common to circle a number if it's known to be white.
 
-* Here is the solution to the above puzzle:
+Here is the solution to the above puzzle:
 
-![Example hitori puzzle solution](hitori_sol.png "Example hitori puzzle solution")
+![Example hitori puzzle solution](images/hitori_sol.png "Example hitori puzzle solution")
 
 ## Links to Hitori puzzles
 

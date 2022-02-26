@@ -2,7 +2,7 @@
 
 Tent puzzles (also called tent and tree puzzles) consist of a grid that contains some trees, with numeric clues for columns and rows.
 
-![Example tent puzzle](tent.png "Example tent puzzle")
+![Example tent puzzle](images/tent.png "Example tent puzzle")
 
 The idea is to place tents and empty spaces (typically green for grass!) in the white cells, satisfying the following rules:
 
@@ -14,7 +14,7 @@ The idea is to place tents and empty spaces (typically green for grass!) in the 
 
 Here is the solution to the above puzzle:
 
-![Example tent puzzle solution](tent_sol.png "Example tent puzzle solution")
+![Example tent puzzle solution](images/tent_sol.png "Example tent puzzle solution")
 
 ## Variations
 

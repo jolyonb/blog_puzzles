@@ -2,13 +2,13 @@
 
 Slitherlink puzzles (also called fences, loop the loop, or loop puzzles) consist of a dotted grid with numbers between the gridpoints, as in the following example.
 
-![Example slitherlink puzzle](slitherlink.png "Example slitherlink puzzle")
+![Example slitherlink puzzle](images/slitherlink.png "Example slitherlink puzzle")
 
 The puzzle is to draw vertical/horizontal lines between dots to create a single loop across the grid that doesn't cross or branch. The numbers indicate how many loop segments are on the edge of that square.
 
 Here is the solution to the above puzzle:
 
-![Example slitherlink puzzle solution](slitherlink_sol.png "Example slitherlink puzzle solution")
+![Example slitherlink puzzle solution](images/slitherlink_sol.png "Example slitherlink puzzle solution")
 
 ## Variations
 

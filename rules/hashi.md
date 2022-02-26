@@ -2,7 +2,7 @@
 
 Hashi (also called "Hashiwokakero" and "Bridges") puzzles consist of some numbers from 1-8 in circles, floating on a grid.
 
-![Example hashi puzzle](hashi.png "Example hashi puzzle")
+![Example hashi puzzle](images/hashi.png "Example hashi puzzle")
 
 Each number represents an island. The goal of this puzzle is to draw bridges between islands in order to satisfy the following conditions:
 
@@ -13,7 +13,7 @@ Each number represents an island. The goal of this puzzle is to draw bridges bet
 
 Here is the solution to the above puzzle:
 
-![Example hashi puzzle solution](hashi_sol.png "Example hashi puzzle solution")
+![Example hashi puzzle solution](images/hashi_sol.png "Example hashi puzzle solution")
 
 ## Variations
 

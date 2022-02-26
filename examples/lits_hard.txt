@@ -1,0 +1,50 @@
+aaaabbccdddeeee
+ffabbgcjjdeekle
+fgggggcjideekle
+ffggggjjiikkkle
+mfhhgjjjiikllll
+mmhhhnnrrsssssl
+mmmmpnnnrrrwstt
+ommpppnqrrwwvtt
+oo55ppqqxxwwvvt
+o44555qxxxwwwvt
+zz466556x3yywut
+zz416666333ywut
+z14116233t3ywut
+114416223t3tuut
+111111233tttttt
+
+# Puzzle from https://www.puzzle-lits.com/ (15x15 Hard LITS Puzzle ID: 9,396,849)
+#
+# Unique solution:
+# ┌───────┬───┬───┬─────┬───────┐
+# │L L L .│S S│L L│T T T│L L L .│
+# ├───┐ ┌─┘ ┌─┤ ┌─┴─┐ ┌─┘ ┌─┬─┐ │
+# │. .│L│S S│.│L│. .│T│. L│.│I│.│
+# │ ┌─┴─┴───┘ │ │ ┌─┤ │   │ │ │ │
+# │S│. . . L .│L│.│T│.│. .│.│I│.│
+# │ └─┐       ├─┘ │ └─┼───┘ │ │ │
+# │S S│L L L .│S S│T T│L L L│I│.│
+# ├─┐ ├───┐ ┌─┘   │   │ ┌───┘ └─┤
+# │.│S│. T│.│S S .│T .│L│. . I .│
+# │ └─┤   └─┼───┬─┴─┬─┴─┴─────┐ │
+# │L .│T T T│. T│. L│. . T T T│.│
+# │   └───┬─┤   └─┐ └───┬─┐ ┌─┴─┤
+# │L L L .│.│T T T│L L L│.│T│. .│
+# ├─┐   ┌─┘ └─┐ ┌─┤   ┌─┘ ├─┤   │
+# │T│. .│L L L│.│S│. .│T .│S│. .│
+# │ └─┬─┴─┐   ├─┘ ├───┤   │ └─┐ │
+# │T T│S S│. L│S S│L L│T T│S S│.│
+# │ ┌─┴─┐ └───┤ ┌─┘   │   └─┐ │ │
+# │T│. .│S S .│S│. L .│T . .│S│.│
+# ├─┴─┐ ├───┐ └─┼─┐ ┌─┼───┐ ├─┤ │
+# │L L│I│. L│. .│.│L│.│L L│.│I│.│
+# │   │ ├─┐ └───┘ ├─┘ └─┐ │ │ │ │
+# │L .│I│.│L L L .│I . .│L│.│I│.│
+# │ ┌─┤ │ └─┐ ┌─┬─┘ ┌─┐ │ │ │ │ │
+# │L│.│I│. .│.│T│. I│.│.│L│.│I│.│
+# ├─┘ │ └─┐ │ │ └─┐ │ │ ├─┼─┘ │ │
+# │. .│I .│L│.│T T│I│.│.│T│. I│.│
+# │   └───┘ └─┤ ┌─┘ │ └─┘ └───┘ │
+# │. . L L L .│T│. I│. T T T . .│
+# └───────────┴─┴───┴───────────┘
