@@ -70,12 +70,12 @@ shape(tetr_t, tshape180, (0;1;-1), 0). shape(tetr_t, tshape180, 0, -1).
 % Indices
 % Region indices
 regions(N) :- region(X, Y, N).
+% Cell indices
+cell(X, Y) :- region(X, Y, N).
 % Shape indices
 shape(S, O) :- shape(S, O, X, Y).
 % Shape sizes
 shape_size(S, C) :- shape(S, O), C = #count{Sx, Sy : shape(S, O, Sx, Sy)}.
-% Cell indices
-cell(X, Y) :- region(X, Y, N).
 
 
 % Solving
@@ -113,9 +113,8 @@ adjacent(X2,Y2,X1,Y1) :- adjacent(X1,Y1,X2,Y2).
 % Find the first black square (top row containing black, then first column in that row)
 minrow(R) :- R = #min{Y : black(X,Y), cell(X,Y)}.
 mincol(C) :- C = #min{X : black(X,Y), cell(X,Y), minrow(Y)}.
-firstblack(X,Y) :- mincol(X), minrow(Y).
 % Assert that the first black square can reach itself
-reachable(X,Y) :- firstblack(X,Y).
+reachable(X,Y) :- mincol(X), minrow(Y).
 % Propagate reachability through adjacent black squares
 reachable(X2,Y2) :- reachable(X1,Y1), adjacent(X1,Y1,X2,Y2), black(X2,Y2).
 % We need all black squares to be reachable from the first black square

@@ -16,8 +16,8 @@ The name of the puzzle comes from the 4 tetrominos that are used in the puzzle; 
 
 Here is the solution to the above puzzle:
 
-![Example lits puzzle solution](images/lits_sol.png "Example lits puzzle solution")
+![Example LITS puzzle solution](images/lits_sol.png "Example LITS puzzle solution")
 
-## Links to Lits puzzles
+## Links to LITS puzzles
 
 * https://www.puzzle-lits.com/

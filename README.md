@@ -23,8 +23,8 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 * [Slitherlink (Fences, Loop the Loop, Loop)](rules/slitherlink.md) ([Blog post](https://blog.dodgyfysix.com/2022/02/09/slitherlink-puzzles-in-asp/))
 * [Hashi (Bridges)](rules/hashi.md) ([Blog post](https://blog.dodgyfysix.com/2022/02/20/hashi-puzzles-in-asp/))
 * [Yajilin (Arrow Ring)](rules/yajilin.md) (including a number of variants) ([Blog post](https://blog.dodgyfysix.com/2022/02/20/yajilin-puzzles-in-asp/))
-* [Hitori (Alone/One Person/Leave Me Alone)](rules/hitori.md)
-* [LITS (Nuruomino)](rules/lits.md)
+* [Hitori (Alone/One Person/Leave Me Alone)](rules/hitori.md) ([Blog post](https://blog.dodgyfysix.com/2022/02/26/hitori-puzzles-in-asp/))
+* [LITS (Nuruomino)](rules/lits.md) ([Blog post](https://blog.dodgyfysix.com/2022/02/26/lits-puzzles-in-asp/))
 
 Other ASP solvers without a python wrapper are documented [here](other%20asp%20solvers/README.md).
 
