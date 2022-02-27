@@ -10,13 +10,23 @@ puzzle. Regions are labelled by any alphanumeric character (allowing for
 at most 62 regions).
 
 After the grid, include an empty line to begin the optional second block.
-The lines that follow allow for comments (starting with a #).
+The lines that follow allow for comments (starting with a #), as well as
+the following optional settings:
+letters=LITS
+reflections=True/False
+The letters setting allows you to choose which letters can be used.
+The reflections setting specifies if you want to allow reflections or not.
+With reflections=True, you can choose from L, I, T, S.
+With reflections=False, you can also add in J and Z.
+Reflections defaults to True.
+Letters defaults to all available letters (LITS or LITSJZ as appropriate).
 """
 
 from jinja2 import Template
 from typing import List
 
 from solvers.asp.common import Puzzle
+from solvers.asp.shapes import get_clingo_definitions
 from solvers.common.loaders import load_grid
 from solvers.common.output import Colors, print_chars_with_color, print_chars_with_color_and_region
 from solvers.common.regions import map_cells
@@ -27,22 +37,19 @@ class Chars(object):
     I = 'I'
     T = 'T'
     S = 'S'
+    J = 'J'
+    Z = 'Z'
     EMPTY = '.'
     UNKNOWN = '?'
 
-
-char_mapping = {
-    'tetr_l': 'L',
-    'tetr_i': 'I',
-    'tetr_t': 'T',
-    'tetr_s': 'S',
-}
 
 char_colors = {
     Chars.L: Colors.RED,
     Chars.I: Colors.YELLOW,
     Chars.T: Colors.CYAN,
     Chars.S: Colors.MAGENTA,
+    Chars.J: Colors.BLUE,
+    Chars.Z: Colors.GREEN,
     Chars.EMPTY: Colors.WHITE,
 }
 
@@ -53,6 +60,9 @@ template = """
 {% for row, col, regionnum in regions %}
 region({{ col }}, {{ row }}, {{ regionnum }}).
 {% endfor %}
+
+% Shape definitions
+{{ shape_defs }}
 """
 
 
@@ -69,6 +79,8 @@ class Lits(Puzzle):
         """
         super().__init__()
         self.settings = None
+        self.reflections = None
+        self.letters = None
         self.rows = None
         self.cols = None
         self.regions = None
@@ -79,9 +91,16 @@ class Lits(Puzzle):
         defined in the class' __init__ method.
         """
         allowed = '1234567890' + 'abcdefghijklmnopqrstuvwxyz' + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        regions, settings = load_grid(filename, allowed_chars=allowed, allowed_settings=[])
+        regions, settings = load_grid(filename, allowed_chars=allowed, allowed_settings=['reflections', 'letters'])
         self.regions = regions
         self.settings = settings
+        self.reflections = settings.get('reflections', True)
+        # Convert reflections from a string to a boolean
+        if isinstance(self.reflections, str):
+            self.reflections = self.reflections.lower() in ['1', 'true', 't', 'y', 'yes']
+        default = 'LITS' if self.reflections else 'LITSJZ'
+        self.letters = settings.get('letters', default).upper()
+        self.letters = ''.join(sorted(list(set(self.letters))))  # Remove any duplicates
 
         # Extract values from the grid and settings
         self.rows = len(self.regions)
@@ -92,8 +111,9 @@ class Lits(Puzzle):
         This method is called to construct and return the clingo program to specify the puzzle definition.
         """
         cells = map_cells(self.regions)
+        shape_defs = get_clingo_definitions(self.letters, self.reflections, category='tetr')
         renderer = Template(template, trim_blocks=True)
-        return renderer.render(regions=cells).strip()
+        return renderer.render(regions=cells, shape_defs=shape_defs).strip()
 
     def base_grid(self) -> List[List[str]]:
         """Constructs a list of lists of characters reflected the puzzle definition."""
@@ -111,7 +131,7 @@ class Lits(Puzzle):
         for entry in model:
             if entry.name == 'black':
                 col, row, shape, _ = entry.arguments
-                grid[row.number][col.number] = char_mapping[shape.name]
+                grid[row.number][col.number] = shape.name.upper()
             elif entry.name == 'white':
                 col, row = entry.arguments
                 grid[row.number][col.number] = Chars.EMPTY

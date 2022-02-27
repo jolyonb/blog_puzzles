@@ -14,3 +14,8 @@ eeffff
 #   I	.	I	I	I	I
 #   .	S	S	.	T	.
 #   S	S	.	T	T	T
+#
+# The following options are available:
+# letters=LITS
+# reflections=True
+# If reflections=False, you can choose from LITSJZ
