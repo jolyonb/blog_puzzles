@@ -16,7 +16,7 @@ Coordinates are (x, y) with (0, 0) being top left, y going down, x going right.
 The present implementation assumes shapes can always be rotated.
 """
 
-from typing import Tuple, List, Dict
+from typing import Tuple, List, Dict, Union
 
 # All definitions are of the form "Name": ['Orientation', [(X,Y)]]
 # Definitions allowing for reflections
@@ -36,28 +36,28 @@ tetrominos_1sided = {
 }
 
 pentominos_free = {
-    'F': [],
-    'I': [],
-    'L': [],
-    'N': [],
-    'P': [],
-    'T': [],
-    'U': [],
-    'V': [],
-    'W': [],
-    'X': [],
-    'Y': [],
-    'Z': [],
+    'pent_F': ['F', [(0, 0), (1, 0), (0, 1), (-1, 1), (0, 2)]],
+    'pent_I': ['Vertical', [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4)]],
+    'pent_L': ['L', [(0, 0), (0, 1), (0, 2), (0, 3), (1, 3)]],
+    'pent_N': ['Z', [(0, 0), (1, 0), (1, 1), (2, 1), (3, 1)]],
+    'pent_P': ['P', [(0, 0), (0, 1), (1, 0), (1, 1), (0, 2)]],
+    'pent_T': ['T', [(0, 0), (1, 0), (-1, 0), (0, 1), (0, 2)]],
+    'pent_U': ['U', [(0, 0), (0, 1), (1, 1), (2, 1), (2, 0)]],
+    'pent_V': ['L', [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2)]],
+    'pent_W': ['steps_down_right', [(0, 0), (0, 1), (1, 1), (1, 2), (2, 2)]],
+    'pent_X': ['Plus', [(0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)]],
+    'pent_Y': ['crook_left', [(0, 0), (0, 1), (0, 2), (0, 3), (-1, 1)]],
+    'pent_Z': ['Z', [(0, 0), (1, 0), (1, 1), (1, 2), (2, 2)]],
 }
 
 pentominos_1sided = {
     **pentominos_free,
-    'Fr': [],  # Reflection of F
-    'J': [],   # Reflection of L
-    'Nr': [],  # Reflection of N
-    'Q': [],   # Reflection of P
-    'Yr': [],  # Reflection of Y
-    'S': [],   # Reflection of Z
+    'pent_Fr': ['Fr', [(0, 0), (-1, 0), (0, 1), (1, 1), (0, 2)]],          # Reflection of F
+    'pent_J': ['J', [(0, 0), (0, 1), (0, 2), (0, 3), (-1, 3)]],            # Reflection of L
+    'pent_Nr': ['S', [(0, 0), (-1, 0), (-1, 1), (-2, 1), (-3, 1)]],        # Reflection of N
+    'pent_Q': ['Q', [(0, 0), (0, 1), (-1, 0), (-1, 1), (0, 2)]],           # Reflection of P
+    'pent_Yr': ['crook_right', [(0, 0), (0, 1), (0, 2), (0, 3), (1, 1)]],  # Reflection of Y
+    'pent_S': ['S', [(0, 0), (-1, 0), (-1, 1), (-1, 2), (-2, 2)]],         # Reflection of Z
 }
 
 
@@ -176,7 +176,7 @@ def clingo_shape(name: str, orientation: str, stencil: List[Tuple[int, int]]) ->
     return combined.lower()
 
 
-def get_clingo_definitions(letters: str, reflections: bool, category: str):
+def get_clingo_definitions(letters: Union[str, List[str]], reflections: bool, category: str):
     """
     Generates the clingo shape definitions for the given letters, returning the results
     as a string.
@@ -203,14 +203,14 @@ def get_clingo_definitions(letters: str, reflections: bool, category: str):
 
 if __name__ == '__main__':
     # # Test code to output various rotations/reflections of a given shape
-    # shape = 'Z'
-    # orig_orientation, orig_stencil = tetrominos_1sided[shape]
+    # shape = 'pent_Yr'
+    # orig_orientation, orig_stencil = pentominos_1sided[shape]
     # versions = generate_versions(orig_stencil, orig_orientation, reflections=False)
     # for orientation, stencil in versions.items():
-    #     print(f'{shape} tetromino, {orientation} orientation')
+    #     print(f'{shape}, {orientation} orientation')
     #     print(clingo_shape(shape, orientation, stencil))
     #     print_shape(stencil)
     #     print()
 
-    # Test code to generate
-    print(get_clingo_definitions('LITS', reflections=True, category='tetr'))
+    # Test code to generate clingo definitions
+    print(get_clingo_definitions(['pent_U', 'pent_V', 'pent_W'], reflections=True, category='pent'))
