@@ -192,10 +192,11 @@ def get_clingo_definitions(letters: Union[str, List[str]], reflections: bool, ca
         raise ValueError(f'Bad category "{category}", was expecting "tetr" or "pent".')
     entries = []
     for name in letters:
-        orig_orientation, orig_stencil = pieces[name]
+        fullname = name if category == 'tetr' else f'pent_{name}'
+        orig_orientation, orig_stencil = pieces[fullname]
         versions = generate_versions(orig_stencil, orig_orientation, reflections=reflections)
         entries.extend(
-            clingo_shape(name, orientation, stencil)
+            clingo_shape(fullname, orientation, stencil)
             for orientation, stencil in versions.items()
         )
     return '\n'.join(entries)
@@ -213,4 +214,4 @@ if __name__ == '__main__':
     #     print()
 
     # Test code to generate clingo definitions
-    print(get_clingo_definitions(['pent_U', 'pent_V', 'pent_W'], reflections=True, category='pent'))
+    print(get_clingo_definitions('LITSO', reflections=True, category='tetr'))

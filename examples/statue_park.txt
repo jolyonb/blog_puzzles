@@ -1,0 +1,25 @@
+......O
+....OX.
+...OX.O
+.X...X.
+X.OO...
+.XO....
+O......
+
+# Puzzle from https://mellowmelon.wordpress.com/statue-park/
+#
+# Unique solution:
+# OO.LLLo
+# OO..oL.
+# ...oS.o
+# .T..SS.
+# TToo.S.
+# .To....
+# o..IIII
+#
+# You must specify which letters are available. Letters can be repeated.
+tetrominos=LITSO
+pentominos=
+reflections=True
+# For reflections=True, tetrominos have LITSO available, while pentominos have FILNPTUVWXYZ
+# If reflections=False, tetrominos also have JZ available, while pentominos have QSJ and F', N' and Y'
