@@ -130,8 +130,12 @@ class Lits(Puzzle):
         # Process the model
         for entry in model:
             if entry.name == 'black':
-                col, row, shape, _ = entry.arguments
-                grid[row.number][col.number] = shape.name.upper()
+                if len(entry.arguments) == 4:
+                    col, row, shape, _ = entry.arguments
+                    grid[row.number][col.number] = shape.name.upper()
+                else:
+                    col, row = entry.arguments
+                    grid[row.number][col.number] = 'x'
             elif entry.name == 'white':
                 col, row = entry.arguments
                 grid[row.number][col.number] = Chars.EMPTY

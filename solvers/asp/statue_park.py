@@ -180,11 +180,18 @@ class StatuePark(Puzzle):
         # Process the model
         for entry in model:
             if entry.name == 'black':
-                col, row, _, shape = entry.arguments
-                s = shape.name.upper()
-                # Handle pentominos, including reflections
-                s = s.removeprefix('PENT_')[0]
-                grid[row.number][col.number] = s
+                if len(entry.arguments) == 4:
+                    col, row, _, shape = entry.arguments
+                    s = shape.name.upper()
+                    # Handle pentominos, including reflections
+                    s = s.removeprefix('PENT_')[0]
+                    grid[row.number][col.number] = s
+                else:
+                    # 2-entry black shape
+                    # Apply 'X' if otherwise unknown
+                    col, row = entry.arguments
+                    if grid[row.number][col.number] == Chars.UNKNOWN:
+                        grid[row.number][col.number] = 'x'
             elif entry.name == 'white':
                 col, row = entry.arguments
                 grid[row.number][col.number] = Chars.EMPTY

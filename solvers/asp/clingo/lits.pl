@@ -66,4 +66,5 @@ reachable(X2,Y2) :- reachable(X1,Y1), adjacent(X1,Y1,X2,Y2), black(X2,Y2).
 white(X,Y) :- not black(X,Y), cell(X,Y).
 
 #show black/4.
+#show black/2.
 #show white/2.

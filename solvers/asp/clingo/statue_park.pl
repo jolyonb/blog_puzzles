@@ -42,7 +42,7 @@ valid_anchor_loc(S,O,X,Y) :- cell(X,Y), shape(S,O), shape_size(S,C1),
 { placement(N,S,O,X,Y) : valid_anchor_loc(S,O,X,Y) } = 1 :- shape_entry(N,S).
 
 % Given the selected placement entries, label filled cells as black.
-% We have two versions here, one that includes shape number and name information, and one that doesn't.
+% We have two versions here, one that includes shape information, and one that doesn't.
 % black(x, y, shape_number, shape_name).
 % black(x, y).
 black(Xabs,Yabs,N,S) :- cell(X,Y), placement(N,S,O,X,Y), shape(S,O,Dx,Dy), Xabs=X+Dx, Yabs=Y+Dy.
@@ -73,5 +73,16 @@ reachable(X2,Y2) :- reachable(X1,Y1), adjacent(X1,Y1,X2,Y2), white(X2,Y2).
 % We need all white squares to be reachable from the first white square
 :- cell(X,Y), white(X,Y), not reachable(X,Y).
 
+% Pin W
+:- not black(9,2,_,pent_w).
+:- not white(11,1).
+% Pin I
+:- not black(2,11,_,pent_i).
+% Pin X
+:- not black(4,6,_,pent_x).
+% Pin F
+:- not black(6,9,_,pent_f).
+
 #show black/4.
 #show white/2.
+#show black/2.
