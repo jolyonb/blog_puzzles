@@ -17,11 +17,8 @@
 % shape_entry(shape_num,shape_name).
 
 % Indices
-% Grid indices
-row(0..rows-1).
-col(0..cols-1).
 % Cell indices
-cell(C, R) :- row(R), col(C).
+cell(C, R) :- R=0..rows-1, C=0..cols-1.
 % Shape indices
 shape(S, O) :- shape(S, O, X, Y).
 % Shape sizes
@@ -72,16 +69,6 @@ reachable(X,Y) :- mincol(X), minrow(Y).
 reachable(X2,Y2) :- reachable(X1,Y1), adjacent(X1,Y1,X2,Y2), white(X2,Y2).
 % We need all white squares to be reachable from the first white square
 :- cell(X,Y), white(X,Y), not reachable(X,Y).
-
-% Pin W
-:- not black(9,2,_,pent_w).
-:- not white(11,1).
-% Pin I
-:- not black(2,11,_,pent_i).
-% Pin X
-:- not black(4,6,_,pent_x).
-% Pin F
-:- not black(6,9,_,pent_f).
 
 #show black/4.
 #show white/2.
