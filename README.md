@@ -25,7 +25,7 @@ The below links are to the rules for the puzzle as implemented in the solvers he
 * [Yajilin (Arrow Ring)](rules/yajilin.md) (including a number of variants) ([Blog post](https://blog.dodgyfysix.com/2022/02/20/yajilin-puzzles-in-asp/))
 * [Hitori (Alone/One Person/Leave Me Alone)](rules/hitori.md) ([Blog post](https://blog.dodgyfysix.com/2022/02/26/hitori-puzzles-in-asp/))
 * [LITS (Nuruomino)](rules/lits.md) ([Blog post](https://blog.dodgyfysix.com/2022/02/26/lits-puzzles-in-asp/))
-* [Statue Park](rules/satue_park.md)
+* [Statue Park](rules/statue_park.md)
 
 Other ASP solvers without a python wrapper are documented [here](other%20asp%20solvers/README.md).
 
