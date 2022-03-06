@@ -22,6 +22,7 @@ adjacent(X,Y,X+1,Y) :- cell(X,Y), cell(X+1,Y).
 adjacent(X,Y,X,Y+1) :- cell(X,Y), cell(X,Y+1).
 adjacent(X2,Y2,X1,Y1) :- adjacent(X1,Y1,X2,Y2).
 % Each number can reach itself in its own region
+% reachable(x_loc, y_loc, x_regionindex, y_regionindex).
 reachable(X,Y,X,Y) :- number(X,Y,N).
 % Propagate reachability through adjacent squares of the same region
 reachable(X2,Y2,X0,Y0) :- reachable(X1,Y1,X0,Y0), adjacent(X1,Y1,X2,Y2), region(X2,Y2,X0,Y0).
