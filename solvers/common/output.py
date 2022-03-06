@@ -71,7 +71,7 @@ def print_chars_with_color(chars: Union[List[str], List[List[str]]],
     endchar = '\t' if tabbed else ''
     for row in chars:
         for char in row:
-            if char in colors:
+            if colors and char in colors:
                 print(colors[char], end='')
         
             print(char, end=endchar)
